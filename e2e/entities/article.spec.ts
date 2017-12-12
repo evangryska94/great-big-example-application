@@ -2,6 +2,7 @@ import { browser, element, by, $ } from 'protractor';
 
 describe('Article e2e test', () => {
 
+    const navbarToggle = element(by.className('jh-navbar-toggler'));
     const username = element(by.id('username'));
     const password = element(by.id('password'));
     const entityMenu = element(by.id('entity-menu'));
@@ -12,6 +13,7 @@ describe('Article e2e test', () => {
     beforeAll(() => {
         browser.get('/');
 
+        navbarToggle.click();
         accountMenu.click();
         login.click();
 
@@ -43,6 +45,7 @@ describe('Article e2e test', () => {
     });
 
     afterAll(function () {
+        navbarToggle.click();
         accountMenu.click();
         logout.click();
     });

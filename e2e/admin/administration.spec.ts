@@ -2,6 +2,7 @@ import { browser, element, by } from 'protractor';
 
 describe('administration', () => {
 
+    const navbarToggle = element(by.className('jh-navbar-toggler'));
     const username = element(by.id('username'));
     const password = element(by.id('password'));
     const accountMenu = element(by.id('account-menu'));
@@ -12,6 +13,7 @@ describe('administration', () => {
     beforeAll(() => {
         browser.get('/');
 
+        navbarToggle.click();
         accountMenu.click();
         login.click();
 
@@ -19,9 +21,11 @@ describe('administration', () => {
         password.sendKeys('admin');
         element(by.css('button[type=submit]')).click();
         browser.waitForAngular();
+        navbarToggle.click();
     });
 
     beforeEach(() => {
+        navbarToggle.click();
         adminMenu.click();
     });
 
@@ -74,6 +78,7 @@ describe('administration', () => {
     });
 
     afterAll(() => {
+        navbarToggle.click();
         accountMenu.click();
         logout.click();
     });

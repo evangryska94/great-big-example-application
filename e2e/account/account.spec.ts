@@ -2,6 +2,7 @@ import { browser, element, by } from 'protractor';
 
 describe('account', () => {
 
+    const navbarToggle = element(by.className('jh-navbar-toggler'));
     const username = element(by.id('username'));
     const password = element(by.id('password'));
     const accountMenu = element(by.id('account-menu'));
@@ -17,6 +18,7 @@ describe('account', () => {
         element.all(by.css('h1')).first().getAttribute('jhiTranslate').then((value) => {
             expect(value).toMatch(expect1);
         });
+        navbarToggle.click();
         accountMenu.click();
         login.click();
 
@@ -66,6 +68,7 @@ describe('account', () => {
     });
 
     it('should be able to update password', () => {
+        navbarToggle.click();
         accountMenu.click();
         element(by.css('[routerLink="password"]')).click();
 
@@ -81,9 +84,12 @@ describe('account', () => {
         element.all(by.css('.alert-success')).first().getAttribute('jhiTranslate').then((value) => {
             expect(value).toMatch(expect2);
         });
+
+        navbarToggle.click();
         accountMenu.click();
         logout.click();
 
+        navbarToggle.click();
         accountMenu.click();
         login.click();
 
@@ -102,6 +108,7 @@ describe('account', () => {
     });
 
     afterAll(() => {
+        navbarToggle.click();
         accountMenu.click();
         logout.click();
     });
