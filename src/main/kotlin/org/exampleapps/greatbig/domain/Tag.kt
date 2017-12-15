@@ -14,9 +14,7 @@ import javax.persistence.*
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Document(indexName = "tag")
 data class Tag(val name: String = "",
-            //    @Id @GeneratedValue(strategy = GenerationType.AUTO)
                @Id
-               @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
-               @SequenceGenerator(name = "sequenceGenerator")
+               @GeneratedValue(strategy = GenerationType.IDENTITY)
                @JsonIgnore
                var id: Long = 0)

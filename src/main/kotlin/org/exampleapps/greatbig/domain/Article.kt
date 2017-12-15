@@ -51,10 +51,8 @@ data class Article(
 
     @ManyToOne
     var author: Author = Author(),
-//  @Id @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
-    @SequenceGenerator(name = "sequenceGenerator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long = 0
 
     ) {
