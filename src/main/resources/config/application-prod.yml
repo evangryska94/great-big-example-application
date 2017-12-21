@@ -36,8 +36,8 @@ spring:
     #         hibernate.cache.region.factory_class: io.github.jhipster.config.jcache.NoDefaultJCacheRegionFactory
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:mysql://localhost:3306/example
-        username: root
+        # url: jdbc:mysql://localhost:3306/example
+        # username: root
         # password:
     jpa:
         database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
